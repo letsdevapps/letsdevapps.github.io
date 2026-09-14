@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,6 @@
     <title>Bit-Shift | Home</title>
 </head>
 <body>
-    <!-- MENU -->
     <nav>
         <div class="logo">
             Início
@@ -25,7 +23,6 @@
         </div>
     </nav>
 
-    <!-- APRESENTAÇÃO -->
     <main class="hero">
         <p>OLÁ, VISITANTE</p>
         <h1>
@@ -33,21 +30,18 @@
         </h1>
 
         <p class="descricao">
-            O contador está em hit-counter no momento, depois eu mudo para session-counter certinho.
-            <br><br>
             Bem-vindo ao meu espaço na internet.
             Aqui vou colocar uma apresentação sobre mim,
             meus projetos, meu trabalho ou qualquer coisa que queira mostrar.
             <br><br>
             Obrigado por todas as mensagens positivas de apoio.
         </p>
-
+        
         <a class="botao" href="#">
             Conheça meu trabalho
         </a>
     </main>
 
-    <!-- RODAPÉ -->
     <footer>
         © 2026 bit-shift | moving things around since always | shifting bits, building things | somewhere between 0 and 1 | 01001000 01101001
     </footer>
@@ -55,8 +49,32 @@
     <script>
     const contador = document.getElementById("contador");
 
-    fetch("https://test-counter-worker.letsdevapps.workers.dev/count")
-        .then(response => response.json())
+    let visitorId = localStorage.getItem("visitor_id");
+/*
+    if (!visitorId) {
+        visitorId = crypto.randomUUID(); //não funcionou no brave, depois eu vejo
+        localStorage.setItem("visitor_id", visitorId);
+    }
+*/
+    if (!visitorId) {
+        visitorId =
+            Date.now().toString(36) +
+            Math.random().toString(36).substring(2) +
+            Math.random().toString(36).substring(2);
+
+        localStorage.setItem("visitor_id", visitorId);
+    }
+
+    fetch(
+        `https://test-counter-worker.letsdevapps.workers.dev/count?visitor_id=${encodeURIComponent(visitorId)}`
+    )
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            return response.json();
+        })
         .then(data => {
             contador.textContent = String(data.visits).padStart(6, "0");
         })

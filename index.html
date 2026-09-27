@@ -6,28 +6,15 @@
     
     <link rel="icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="css/index-test-1.css">
-    
-    <title>Bit-Shift | Home</title>
+
+    <title>Início</title>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            Início
-        </div>
-
-        <div>
-            <a href="#">Início</a>
-            <a href="#">Sobre</a>
-            <a href="#">Projetos</a>
-            <a href="#">Contato</a>
-        </div>
-    </nav>
+    <nav id="menu"></nav>
 
     <main class="hero">
         <p>OLÁ, VISITANTE</p>
-        <h1>
-            #<span id="contador">000000</span>
-        </h1>
+        <h1>#<span id="contador">000000</span></h1>
 
         <p class="descricao">
             Bem-vindo ao meu espaço na internet.
@@ -42,10 +29,9 @@
         </a>
     </main>
 
-    <footer>
-        © 2026 bit-shift | moving things around since always | shifting bits, building things | somewhere between 0 and 1 | 01001000 01101001
-    </footer>
-    
+    <footer id="footer"></footer>
+    <script src="components/menu.js"></script>
+    <script src="components/footer.js"></script>
     <script>
     const contador = document.getElementById("contador");
 

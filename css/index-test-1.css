@@ -13,14 +13,11 @@ body {
 }
 
 /* ===== MENU ===== */
-
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 25px 8%;
-
   border-bottom: 1px solid #222;
 }
 
@@ -39,6 +36,53 @@ nav a {
 
 nav a:hover {
   color: #00ff88;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+/* Projetos */
+.dropdown {
+  position: relative;
+}
+
+/* Lista que aparece */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #111;
+  border: 1px solid #222;
+  min-width: 180px;
+  padding: 10px 0;
+  z-index: 100;
+}
+
+/* Links dentro do submenu */
+.dropdown-menu a {
+  display: block;
+  margin: 0;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+/* Mostra ao passar o mouse */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.arrow {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
 }
 
 /* ===== PARTE PRINCIPAL ===== */

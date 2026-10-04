@@ -1,0 +1,14 @@
+name: Tarefa Agendada - API 1 Health Check
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+
+jobs:
+  executar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fazer requisição para minha API a cada 10 minutos
+        run: curl https://springboot-rest-2575.onrender.com/
+

@@ -3,6 +3,7 @@ name: Tarefa Agendada - API 1 Health Check
 on:
   schedule:
     - cron: "*/10 * * * *"
+  workflow_dispatch:
 
 jobs:
   executar:
@@ -10,5 +11,10 @@ jobs:
 
     steps:
       - name: Fazer requisição para minha API a cada 10 minutos
-        run: curl https://springboot-rest-2575.onrender.com/
-
+        run: |
+          echo "calling API..."
+          curl --fail --show-error --silent \
+            --max-time 120 \
+            https://springboot-rest-2575.onrender.com/
+          echo "API answered!"
+          

@@ -1,8 +1,8 @@
 name: Tarefa Agendada - API 1 Health Check
 
 on:
-  schedule:
-    - cron: "3,13,23,33,43,53 * * * *"
+  #schedule:
+   # - cron: "3,13,23,33,43,53 * * * *"
   workflow_dispatch:
 
 jobs:
